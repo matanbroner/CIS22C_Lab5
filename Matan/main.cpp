@@ -1,17 +1,9 @@
-//
-//  main.cpp
-//  CIS22C_Lab5
-//
-//  Created by Matan Broner on 11/17/18.
-//  Copyright © 2018 Matan Broner. All rights reserved.
-//
 
 #include <iostream>
 #include "BirthdayDatabase.h"
 using namespace std;
 int main()
 {
-    
     string outputFile;
     cout << "=== Welcome to the 'Name and Birthday Logger' ===" << endl << endl;
     
@@ -19,8 +11,8 @@ int main()
     cout << "--> ";
     getline(cin, outputFile);
     
-    BirthdayDatabase database(outputFile);
-    database.displayMenu();
+    BirthdayDatabase database(outputFile); // create database
+    database.displayMenu(); // run menu program in database
     
     return 0;
 }
