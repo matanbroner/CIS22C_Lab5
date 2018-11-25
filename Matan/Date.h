@@ -20,7 +20,7 @@ enum MONTHS{
 class Date;
 std::ofstream& operator<<(std::ofstream&, Date);
 std::ostream& operator<<(std::ostream&, Date);
-static bool isValidInputForDate(std::string);
+static bool isValidInputForDate(std::string); // determines if a string is in yyyy/mm/dd format
 
 class Date
 {
@@ -146,25 +146,6 @@ void Date::updateDate(std::string newDate)
         throw ("[invalid input given for date]");
 }
 
-/*
- Private Functions
- */
-
-bool Date::isLeapYear()
-{
-    if(std::stoi(this->year) % 4 == 0)
-    {
-        if (std::stoi(this->year) % 100 == 0)
-        {
-            if (std::stoi(this->year) % 400 == 0)
-                return true;
-            else return false;
-        }
-        else return true;
-    }
-    else return false;
-}
-
 void Date::determineDaysInMonth()
 {
     switch(toNumber(this->month))
@@ -193,6 +174,25 @@ void Date::determineDaysInMonth()
             this->month = "01";
             determineDaysInMonth();
     }
+}
+
+/*
+ Private Functions
+ */
+
+bool Date::isLeapYear()
+{
+    if(std::stoi(this->year) % 4 == 0)
+    {
+        if (std::stoi(this->year) % 100 == 0)
+        {
+            if (std::stoi(this->year) % 400 == 0)
+                return true;
+            else return false;
+        }
+        else return true;
+    }
+    else return false;
 }
 
 int Date::toNumber(std::string num)
