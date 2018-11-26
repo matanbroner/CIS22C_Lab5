@@ -313,7 +313,7 @@ bool BirthdayDatabase::readFromInputFile()
 void BirthdayDatabase::writeToOutputFiles()
 {
     std::ofstream namesOutput;
-    namesOutput.open("/Users/matanbroner/Desktop/NamesOutput.txt");
+    namesOutput.open(this->nameOutputFileAddress);
     if (namesOutput)
     {
         namesOutput << "=== Pre-Order Traversal of Names BST ===" << std::endl << std::endl;
@@ -324,7 +324,7 @@ void BirthdayDatabase::writeToOutputFiles()
     }
     
     std::ofstream datesOutput;
-    datesOutput.open("/Users/matanbroner/Desktop/DatesOutput.txt");
+    datesOutput.open(this->dateOutputFileAddress);
     if (datesOutput)
     {
         datesOutput << "=== In-Order Traversal of Dates BST ===" << std::endl << std::endl;
