@@ -40,7 +40,7 @@ void menu() {
 
 	while (!input.eof()) {
 		std::getline(input, tempFirst, ' ');
-		std::getline(input, tempLast, ' ');
+		std::getline(input, tempLast, '\n');
 		std::getline(input, tempBirth, '\n');
 
 		name tempName{ tempFirst, tempLast, tempBirth };
