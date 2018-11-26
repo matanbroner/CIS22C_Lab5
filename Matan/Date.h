@@ -57,6 +57,7 @@ Date::Date(std::string y, std::string m, std::string d)
 {
     if (toNumber(y) >= 0)
         this->year = y;
+    else this->year = "0001";
     
     if (isValidNumber(m, 2))
     {
