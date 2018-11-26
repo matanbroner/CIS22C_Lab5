@@ -7,10 +7,11 @@ class Node
 private:
 	T data; // data held by the node
 	Node<T> *pNode; // pointer to the next node in the structure
-protected:
+public:
 	void setNext(Node<T> *ptr); // assigns the pnode attribute
 	Node<T>* getNext(); // returns pnode address
-public:
+
+	Node<T>() : pNode(nullptr) {};
 	Node<T>(T);
 	void setData(T dataAdd); // assigns to the data attribute
 	T getData(); // returns data

@@ -4,7 +4,7 @@
 #include "Node.h"
 
 template<typename T>
-class List : private Node<T>
+class List //: private Node<T>
 {
 private:
     int count = 0; // amount of nodes in the list
