@@ -23,7 +23,7 @@ private:
     Date birthDate;
 public:
     Person();
-    Person(std::string, std::string);
+    Person(std::string, Date);
     Person(std::string);
     std::string getName();
     std::string getBirthday();
@@ -52,19 +52,10 @@ Person::Person(std::string name)
     this->name = name;
 }
 
-Person::Person(std::string name, std::string date)
+Person::Person(std::string name, Date date)
 {
     this->name = name;
-    if (date.length() == 10)
-    {
-        Date temp(date.substr(0, 4), date.substr(5, 2), date.substr(8, 2));
-        this->birthDate = temp;
-    }
-    else
-    {
-        Date temp("0001", "01", "01");
-        this->birthDate = temp;
-    }
+    this->birthDate = date;
 }
 
 std::string Person::getName(){return this->name;}

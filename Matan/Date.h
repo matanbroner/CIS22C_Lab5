@@ -55,9 +55,8 @@ Date::Date()
 
 Date::Date(std::string y, std::string m, std::string d)
 {
-    if (isValidNumber(y, 4))
+    if (toNumber(y) >= 0)
         this->year = y;
-    else this->year = "0001"; // if not valid set default year value
     
     if (isValidNumber(m, 2))
     {
@@ -122,6 +121,7 @@ std::ostream& operator<<(std::ostream& output, Date date)
     output << date.formatDateToPrint();
     return output;
 }
+
 
 void Date::operator=(Date &otherDate)
 {
@@ -220,7 +220,7 @@ bool isValidInputForDate(std::string date)
 {
     if (date.length() == 10) //  must be in yyyy/mm/dd format
     {
-        if (date[4] == '/' && date[7] == '/') // checks for slashes (/)
+        if (date[4] == '-' && date[7] == '-') // checks for slashes (/)
         {
             for (int index = 0; index < 10; index++)
             {

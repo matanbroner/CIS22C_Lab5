@@ -295,10 +295,13 @@ bool BirthdayDatabase::readFromInputFile()
     {
         while (!inputFile.eof())
         {
-            std::string name, date;
+            std::string name, y, m, d;
             getline(inputFile, name);
-            getline(inputFile, date);
-            Person newPerson(name, date); // creates new Person for each file entry
+            getline(inputFile, y, '-');
+            getline(inputFile, m, '-');
+            getline(inputFile, d);
+            Date temp(y, m, d);
+            Person newPerson(name, temp); // creates new Person for each file entry
             this->insertIntoBothTrees(newPerson); // adds to both trees
         }
         inputFile.close();
